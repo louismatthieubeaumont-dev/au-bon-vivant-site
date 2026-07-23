@@ -190,3 +190,23 @@
   }
 }
 
+
+@utility reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 900ms cubic-bezier(0.2, 0.7, 0.2, 1), transform 900ms cubic-bezier(0.2, 0.7, 0.2, 1);
+  &.is-visible {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@utility reveal-slow {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 1400ms cubic-bezier(0.2, 0.7, 0.2, 1), transform 1400ms cubic-bezier(0.2, 0.7, 0.2, 1);
+  &.is-visible {
+    opacity: 1;
+    transform: none;
+  }
+}
