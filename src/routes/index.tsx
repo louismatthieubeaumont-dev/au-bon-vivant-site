@@ -626,3 +626,68 @@ function Footer() {
     </footer>
   );
 }
+
+function Chef() {
+  return (
+    <section id="chef" className="relative overflow-hidden bg-ink py-28 text-cream sm:py-40">
+      <div className="absolute inset-0 grain" />
+      <span className="pointer-events-none absolute -right-6 top-16 hidden font-display text-[16rem] italic leading-none text-cream/[0.04] lg:block">
+        Chef
+      </span>
+      <div className="relative mx-auto grid max-w-6xl gap-16 px-6 md:grid-cols-12 md:items-center">
+        <div className="reveal md:col-span-6">
+          <p className="chapter-num">— Chapitre I bis —</p>
+          <span className="eyebrow mt-4 block text-cream/70">Le chef</span>
+          <h2 className="mt-5 font-display text-5xl leading-[1.02] text-cream sm:text-6xl md:text-7xl">
+            Antoine<br />
+            <em className="not-italic italic text-gold">Rochefort.</em>
+          </h2>
+          <div className="mt-8 h-px w-16 bg-gold" />
+          <div className="mt-10 space-y-6 leading-relaxed text-cream/75">
+            <p className="text-lg">
+              Formé dans les grandes maisons de Bordeaux et de Lyon, Antoine
+              revient au pays en 1999 pour ouvrir sa propre table — celle
+              du souvenir, celle de la famille, celle du Périgord.
+            </p>
+            <p>
+              Vingt-cinq ans plus tard, le geste est intact : cuissons lentes,
+              sauces montées à la minute, respect absolu du produit. Chaque
+              plat porte la signature d'une main patiente.
+            </p>
+          </div>
+          <dl className="mt-12 grid grid-cols-3 gap-6 border-t border-cream/10 pt-8">
+            <div>
+              <dt className="text-[10px] uppercase tracking-[0.32em] text-gold">Formation</dt>
+              <dd className="mt-2 font-display text-xl text-cream">Bordeaux · Lyon</dd>
+            </div>
+            <div>
+              <dt className="text-[10px] uppercase tracking-[0.32em] text-gold">Distinctions</dt>
+              <dd className="mt-2 font-display text-xl text-cream">2 toques</dd>
+            </div>
+            <div>
+              <dt className="text-[10px] uppercase tracking-[0.32em] text-gold">Aux fourneaux</dt>
+              <dd className="mt-2 font-display text-xl text-cream">Depuis 1999</dd>
+            </div>
+          </dl>
+        </div>
+
+        <div className="reveal-slow relative md:col-span-6">
+          <img
+            src={chefPortrait}
+            alt="Portrait du chef Antoine Rochefort en cuisine"
+            width={1200}
+            height={1504}
+            loading="lazy"
+            className="aspect-[4/5] w-full object-cover"
+          />
+          <div className="absolute -bottom-6 -left-4 hidden bg-gold px-6 py-4 sm:block">
+            <p className="font-display text-3xl italic text-ink">« Le geste juste. »</p>
+          </div>
+          <span className="absolute left-4 top-4 bg-ink/80 px-4 py-2 text-[10px] uppercase tracking-[0.32em] text-cream">
+            Portrait · Été 2024
+          </span>
+        </div>
+      </div>
+    </section>
+  );
+}
