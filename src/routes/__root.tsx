@@ -88,11 +88,15 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       {
         property: "og:description",
         content:
-          "Cuisine française traditionnelle faite maison au cœur de Bergerac. Produits frais, ambiance chaleureuse et raffinée.",
+          "Au Bon Vivant, restaurant gastronomique à Bergerac. Cuisine française traditionnelle faite maison, produits frais de saison. Réservez votre table.",
       },
       { property: "og:type", content: "website" },
       { property: "og:locale", content: "fr_FR" },
       { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:title", content: "Au Bon Vivant — Restaurant gastronomique à Bergerac" },
+      { name: "twitter:description", content: "Au Bon Vivant, restaurant gastronomique à Bergerac. Cuisine française traditionnelle faite maison, produits frais de saison. Réservez votre table." },
+      { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/fc6e0042-303b-4cd8-835f-cd03c3271074/id-preview-c99a4a05--d83560dd-a458-4b80-b42d-9b0ff06f77f7.lovable.app-1784798431982.png" },
+      { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/fc6e0042-303b-4cd8-835f-cd03c3271074/id-preview-c99a4a05--d83560dd-a458-4b80-b42d-9b0ff06f77f7.lovable.app-1784798431982.png" },
     ],
     links: [
       { rel: "stylesheet", href: appCss },
