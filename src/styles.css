@@ -24,8 +24,10 @@
   --color-gold: var(--gold);
   --color-olive: var(--olive);
   --color-olive-dark: var(--olive-dark);
+  --color-beige: var(--beige);
   --color-cream: var(--cream);
   --color-ink: var(--ink);
+
   --color-border: var(--border);
   --color-input: var(--input);
   --color-ring: var(--ring);
@@ -36,32 +38,34 @@
 
 :root {
   --radius: 0.25rem;
-  --cream: oklch(0.973 0.012 85);
-  --ink: oklch(0.15 0.008 90);
-  --olive: oklch(0.48 0.065 115);
-  --olive-dark: oklch(0.32 0.045 115);
-  --gold: oklch(0.75 0.11 82);
+  --cream: oklch(0.968 0.008 82);        /* ivory */
+  --ink: oklch(0.17 0.006 60);           /* deep charcoal */
+  --olive: oklch(0.55 0.025 68);         /* warm taupe (kept class name) */
+  --olive-dark: oklch(0.24 0.008 60);    /* charcoal-brown */
+  --beige: oklch(0.9 0.018 76);          /* warm beige */
+  --gold: oklch(0.76 0.108 80);          /* refined gold */
 
   --background: var(--cream);
   --foreground: var(--ink);
-  --card: oklch(0.985 0.008 85);
+  --card: oklch(0.985 0.006 82);
   --card-foreground: var(--ink);
   --popover: var(--cream);
   --popover-foreground: var(--ink);
-  --primary: var(--olive-dark);
+  --primary: var(--ink);
   --primary-foreground: var(--cream);
-  --secondary: oklch(0.92 0.015 90);
+  --secondary: var(--beige);
   --secondary-foreground: var(--ink);
-  --muted: oklch(0.94 0.012 90);
-  --muted-foreground: oklch(0.42 0.02 100);
+  --muted: oklch(0.93 0.012 78);
+  --muted-foreground: oklch(0.45 0.015 70);
   --accent: var(--gold);
   --accent-foreground: var(--ink);
   --destructive: oklch(0.55 0.2 27);
   --destructive-foreground: var(--cream);
-  --border: oklch(0.88 0.015 90);
-  --input: oklch(0.88 0.015 90);
-  --ring: var(--olive);
+  --border: oklch(0.86 0.014 78);
+  --input: oklch(0.86 0.014 78);
+  --ring: var(--gold);
 }
+
 
 @layer base {
   * {
