@@ -1,14 +1,17 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { useEffect } from "react";
 import { Clock, MapPin, Phone, Mail, Star, Instagram, Facebook } from "lucide-react";
 
 import hero from "@/assets/hero.jpg";
 import chef from "@/assets/chef.jpg";
+import chefPortrait from "@/assets/chef-portrait.jpg";
 import produce from "@/assets/produce.jpg";
 import dish1 from "@/assets/dish-1.jpg";
 import gal1 from "@/assets/gallery-1.jpg";
 import gal2 from "@/assets/gallery-2.jpg";
 import gal3 from "@/assets/gallery-3.jpg";
 import gal4 from "@/assets/gallery-4.jpg";
+
 
 const RESTAURANT = {
   address: "12 Place Pélissière, 24100 Bergerac",
@@ -100,13 +103,34 @@ const hours = [
   { day: "Dimanche", value: "12h – 14h" },
 ];
 
+function useReveal() {
+  useEffect(() => {
+    const els = document.querySelectorAll<HTMLElement>(".reveal, .reveal-slow");
+    const io = new IntersectionObserver(
+      (entries) => {
+        for (const e of entries) {
+          if (e.isIntersecting) {
+            e.target.classList.add("is-visible");
+            io.unobserve(e.target);
+          }
+        }
+      },
+      { threshold: 0.12, rootMargin: "0px 0px -60px 0px" }
+    );
+    els.forEach((el) => io.observe(el));
+    return () => io.disconnect();
+  }, []);
+}
+
 function Home() {
+  useReveal();
   return (
     <div className="min-h-screen bg-background text-foreground">
       <Nav />
       <Hero />
       <Marquee />
       <Story />
+      <Chef />
       <Signatures />
       <Gallery />
       <Reservation />
@@ -117,6 +141,7 @@ function Home() {
     </div>
   );
 }
+
 
 function Nav() {
   return (
