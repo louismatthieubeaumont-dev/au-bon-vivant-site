@@ -254,7 +254,7 @@ function ChapterHeader({ n, eyebrow, title, kicker }: { n: string; eyebrow: stri
 
 function Story() {
   return (
-    <section id="histoire" className="relative py-28 sm:py-40">
+    <section id="histoire" className="reveal relative py-28 sm:py-40">
       <span className="pointer-events-none absolute right-6 top-24 hidden font-display text-[10rem] leading-none text-olive/5 lg:block">I</span>
       <div className="mx-auto grid max-w-6xl gap-16 px-6 md:grid-cols-12 md:items-center">
         <div className="relative md:col-span-6">
@@ -307,7 +307,7 @@ function Story() {
 
 function Signatures() {
   return (
-    <section id="signatures" className="relative bg-ink py-28 text-cream sm:py-40">
+    <section id="signatures" className="reveal relative bg-ink py-28 text-cream sm:py-40">
       <div className="absolute inset-0 grain" />
       <div className="relative mx-auto max-w-6xl px-6">
         <div className="text-center">
@@ -365,7 +365,7 @@ function Signatures() {
 
 function Gallery() {
   return (
-    <section id="galerie" className="py-28 sm:py-40">
+    <section id="galerie" className="reveal py-28 sm:py-40">
       <div className="mx-auto max-w-[1400px] px-6 lg:px-12">
         <ChapterHeader
           n="III"
@@ -414,7 +414,7 @@ function Gallery() {
 
 function Reservation() {
   return (
-    <section id="reserver" className="relative overflow-hidden bg-olive-dark py-28 text-cream sm:py-40">
+    <section id="reserver" className="reveal relative overflow-hidden bg-ink py-28 text-cream sm:py-40">
       <div className="absolute inset-0 grain" />
       <span className="pointer-events-none absolute -left-10 top-10 font-display text-[12rem] italic text-cream/5">Table</span>
       <div className="relative mx-auto grid max-w-6xl gap-16 px-6 lg:grid-cols-2 lg:items-center">
@@ -475,7 +475,7 @@ function Field({ label, value, multiline }: { label: string; value: string; mult
 
 function Reviews() {
   return (
-    <section id="avis" className="py-28 sm:py-40">
+    <section id="avis" className="reveal py-28 sm:py-40">
       <div className="mx-auto max-w-6xl px-6">
         <ChapterHeader
           n="V"
@@ -513,7 +513,7 @@ function Reviews() {
 
 function Practical() {
   return (
-    <section className="bg-secondary py-28 sm:py-40">
+    <section className="reveal bg-secondary py-28 sm:py-40">
       <div className="mx-auto grid max-w-6xl gap-16 px-6 lg:grid-cols-2">
         <div>
           <p className="chapter-num">— Chapitre VI —</p>
@@ -557,7 +557,7 @@ function Practical() {
 
 function Contact() {
   return (
-    <section id="contact" className="py-28 sm:py-40">
+    <section id="contact" className="reveal py-28 sm:py-40">
       <div className="mx-auto max-w-5xl px-6 text-center">
         <ChapterHeader
           n="VII"
