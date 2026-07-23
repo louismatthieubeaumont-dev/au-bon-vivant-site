@@ -1,14 +1,17 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { useEffect } from "react";
 import { Clock, MapPin, Phone, Mail, Star, Instagram, Facebook } from "lucide-react";
 
 import hero from "@/assets/hero.jpg";
 import chef from "@/assets/chef.jpg";
+import chefPortrait from "@/assets/chef-portrait.jpg";
 import produce from "@/assets/produce.jpg";
 import dish1 from "@/assets/dish-1.jpg";
 import gal1 from "@/assets/gallery-1.jpg";
 import gal2 from "@/assets/gallery-2.jpg";
 import gal3 from "@/assets/gallery-3.jpg";
 import gal4 from "@/assets/gallery-4.jpg";
+
 
 const RESTAURANT = {
   address: "12 Place Pélissière, 24100 Bergerac",
@@ -100,13 +103,34 @@ const hours = [
   { day: "Dimanche", value: "12h – 14h" },
 ];
 
+function useReveal() {
+  useEffect(() => {
+    const els = document.querySelectorAll<HTMLElement>(".reveal, .reveal-slow");
+    const io = new IntersectionObserver(
+      (entries) => {
+        for (const e of entries) {
+          if (e.isIntersecting) {
+            e.target.classList.add("is-visible");
+            io.unobserve(e.target);
+          }
+        }
+      },
+      { threshold: 0.12, rootMargin: "0px 0px -60px 0px" }
+    );
+    els.forEach((el) => io.observe(el));
+    return () => io.disconnect();
+  }, []);
+}
+
 function Home() {
+  useReveal();
   return (
     <div className="min-h-screen bg-background text-foreground">
       <Nav />
       <Hero />
       <Marquee />
       <Story />
+      <Chef />
       <Signatures />
       <Gallery />
       <Reservation />
@@ -117,6 +141,7 @@ function Home() {
     </div>
   );
 }
+
 
 function Nav() {
   return (
@@ -229,7 +254,7 @@ function ChapterHeader({ n, eyebrow, title, kicker }: { n: string; eyebrow: stri
 
 function Story() {
   return (
-    <section id="histoire" className="relative py-28 sm:py-40">
+    <section id="histoire" className="reveal relative py-28 sm:py-40">
       <span className="pointer-events-none absolute right-6 top-24 hidden font-display text-[10rem] leading-none text-olive/5 lg:block">I</span>
       <div className="mx-auto grid max-w-6xl gap-16 px-6 md:grid-cols-12 md:items-center">
         <div className="relative md:col-span-6">
@@ -282,7 +307,7 @@ function Story() {
 
 function Signatures() {
   return (
-    <section id="signatures" className="relative bg-ink py-28 text-cream sm:py-40">
+    <section id="signatures" className="reveal relative bg-ink py-28 text-cream sm:py-40">
       <div className="absolute inset-0 grain" />
       <div className="relative mx-auto max-w-6xl px-6">
         <div className="text-center">
@@ -340,7 +365,7 @@ function Signatures() {
 
 function Gallery() {
   return (
-    <section id="galerie" className="py-28 sm:py-40">
+    <section id="galerie" className="reveal py-28 sm:py-40">
       <div className="mx-auto max-w-[1400px] px-6 lg:px-12">
         <ChapterHeader
           n="III"
@@ -389,7 +414,7 @@ function Gallery() {
 
 function Reservation() {
   return (
-    <section id="reserver" className="relative overflow-hidden bg-olive-dark py-28 text-cream sm:py-40">
+    <section id="reserver" className="reveal relative overflow-hidden bg-ink py-28 text-cream sm:py-40">
       <div className="absolute inset-0 grain" />
       <span className="pointer-events-none absolute -left-10 top-10 font-display text-[12rem] italic text-cream/5">Table</span>
       <div className="relative mx-auto grid max-w-6xl gap-16 px-6 lg:grid-cols-2 lg:items-center">
@@ -450,7 +475,7 @@ function Field({ label, value, multiline }: { label: string; value: string; mult
 
 function Reviews() {
   return (
-    <section id="avis" className="py-28 sm:py-40">
+    <section id="avis" className="reveal py-28 sm:py-40">
       <div className="mx-auto max-w-6xl px-6">
         <ChapterHeader
           n="V"
@@ -488,7 +513,7 @@ function Reviews() {
 
 function Practical() {
   return (
-    <section className="bg-secondary py-28 sm:py-40">
+    <section className="reveal bg-secondary py-28 sm:py-40">
       <div className="mx-auto grid max-w-6xl gap-16 px-6 lg:grid-cols-2">
         <div>
           <p className="chapter-num">— Chapitre VI —</p>
@@ -532,7 +557,7 @@ function Practical() {
 
 function Contact() {
   return (
-    <section id="contact" className="py-28 sm:py-40">
+    <section id="contact" className="reveal py-28 sm:py-40">
       <div className="mx-auto max-w-5xl px-6 text-center">
         <ChapterHeader
           n="VII"
@@ -599,5 +624,70 @@ function Footer() {
         </div>
       </div>
     </footer>
+  );
+}
+
+function Chef() {
+  return (
+    <section id="chef" className="relative overflow-hidden bg-ink py-28 text-cream sm:py-40">
+      <div className="absolute inset-0 grain" />
+      <span className="pointer-events-none absolute -right-6 top-16 hidden font-display text-[16rem] italic leading-none text-cream/[0.04] lg:block">
+        Chef
+      </span>
+      <div className="relative mx-auto grid max-w-6xl gap-16 px-6 md:grid-cols-12 md:items-center">
+        <div className="reveal md:col-span-6">
+          <p className="chapter-num">— Chapitre I bis —</p>
+          <span className="eyebrow mt-4 block text-cream/70">Le chef</span>
+          <h2 className="mt-5 font-display text-5xl leading-[1.02] text-cream sm:text-6xl md:text-7xl">
+            Antoine<br />
+            <em className="not-italic italic text-gold">Rochefort.</em>
+          </h2>
+          <div className="mt-8 h-px w-16 bg-gold" />
+          <div className="mt-10 space-y-6 leading-relaxed text-cream/75">
+            <p className="text-lg">
+              Formé dans les grandes maisons de Bordeaux et de Lyon, Antoine
+              revient au pays en 1999 pour ouvrir sa propre table — celle
+              du souvenir, celle de la famille, celle du Périgord.
+            </p>
+            <p>
+              Vingt-cinq ans plus tard, le geste est intact : cuissons lentes,
+              sauces montées à la minute, respect absolu du produit. Chaque
+              plat porte la signature d'une main patiente.
+            </p>
+          </div>
+          <dl className="mt-12 grid grid-cols-3 gap-6 border-t border-cream/10 pt-8">
+            <div>
+              <dt className="text-[10px] uppercase tracking-[0.32em] text-gold">Formation</dt>
+              <dd className="mt-2 font-display text-xl text-cream">Bordeaux · Lyon</dd>
+            </div>
+            <div>
+              <dt className="text-[10px] uppercase tracking-[0.32em] text-gold">Distinctions</dt>
+              <dd className="mt-2 font-display text-xl text-cream">2 toques</dd>
+            </div>
+            <div>
+              <dt className="text-[10px] uppercase tracking-[0.32em] text-gold">Aux fourneaux</dt>
+              <dd className="mt-2 font-display text-xl text-cream">Depuis 1999</dd>
+            </div>
+          </dl>
+        </div>
+
+        <div className="reveal-slow relative md:col-span-6">
+          <img
+            src={chefPortrait}
+            alt="Portrait du chef Antoine Rochefort en cuisine"
+            width={1200}
+            height={1504}
+            loading="lazy"
+            className="aspect-[4/5] w-full object-cover"
+          />
+          <div className="absolute -bottom-6 -left-4 hidden bg-gold px-6 py-4 sm:block">
+            <p className="font-display text-3xl italic text-ink">« Le geste juste. »</p>
+          </div>
+          <span className="absolute left-4 top-4 bg-ink/80 px-4 py-2 text-[10px] uppercase tracking-[0.32em] text-cream">
+            Portrait · Été 2024
+          </span>
+        </div>
+      </div>
+    </section>
   );
 }
